@@ -1,0 +1,570 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#eef5f2" />
+    <meta
+      name="description"
+      content="Explore the art of glassmorphism. Discover frosted surfaces, thoughtful layers, and an interactive CSS playground at Glass Studies."
+    />
+    <title>Glass Studies — A different kind of depth.</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <svg
+      class="svg-library"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden="true"
+    >
+      <defs>
+        <linearGradient id="sky" x2="0" y2="1">
+          <stop stop-color="#a8cde0" />
+          <stop offset=".64" stop-color="#e0eee9" />
+          <stop offset="1" stop-color="#b4d8d0" />
+        </linearGradient>
+        <linearGradient id="mountain-back" x2=".6" y2="1">
+          <stop stop-color="#88b8c0" />
+          <stop offset="1" stop-color="#538c9b" />
+        </linearGradient>
+        <linearGradient id="mountain-mid" x2=".6" y2="1">
+          <stop stop-color="#83b5a5" />
+          <stop offset="1" stop-color="#3e807d" />
+        </linearGradient>
+        <linearGradient id="mountain-front" x2="1" y2="1">
+          <stop stop-color="#559882" />
+          <stop offset="1" stop-color="#123f53" />
+        </linearGradient>
+        <symbol id="landscape" viewBox="0 0 1400 760">
+          <path fill="url(#sky)" d="M0 0h1400v760H0z" />
+          <circle cx="1090" cy="165" r="67" fill="#f4f8e9" opacity=".76" />
+          <path
+            fill="#b0cdd1"
+            d="m0 445 95-62 70 15 141-133 90 75 157-87 95 63 109-110 107 81 61-8 90 58 167-107 110 97 108-55v488H0Z"
+          />
+          <path
+            fill="url(#mountain-back)"
+            d="m0 565 138-99 69 13 191-124 83 49 128-105 66 43 146-107 114 89 56-15 169 144 121-49 119 58v298H0Z"
+          />
+          <path
+            fill="#d2e5df"
+            opacity=".4"
+            d="m609 299-59 113 125-70-29 4Z m212-64-96 118 104-40 58 1Z"
+          />
+          <path
+            fill="url(#mountain-mid)"
+            d="m0 641 180-54 161 23 181-111 140 48 146-125 134 45 135-103 113 58 210-94v432H0Z"
+          />
+          <path
+            fill="#a9d2b7"
+            opacity=".56"
+            d="m1077 364-135 103-134-45 100 74 107-49 89-14 86-11Z"
+          />
+          <path
+            fill="url(#mountain-front)"
+            d="M0 640c132-11 243 98 409 91 223-9 276-114 457-123 221-11 318-135 534-134v286H0Z"
+          />
+          <path
+            fill="#173f4b"
+            opacity=".36"
+            d="M777 760c108-83 210-66 309-118 125-65 210-89 314-104v222Z"
+          />
+          <path
+            d="M1138 760c-77-50-125-53-105-76 19-22 95-31 64-48-22-12-21-25 13-38"
+            fill="none"
+            stroke="#c8e0cb"
+            stroke-width="3"
+            opacity=".45"
+          />
+        </symbol>
+        <symbol id="arrow" viewBox="0 0 24 24">
+          <path d="M5 12h14m-6-6 6 6-6 6" />
+        </symbol>
+        <symbol id="layers" viewBox="0 0 24 24">
+          <path d="m12 3 9 5-9 5-9-5 9-5Zm-9 9 9 5 9-5M3 16l9 5 9-5" />
+        </symbol>
+        <symbol id="sun" viewBox="0 0 24 24">
+          <circle cx="12" cy="12" r="4" />
+          <path
+            d="M12 2v2m0 16v2M2 12h2m16 0h2M5 5l1.5 1.5m11 11L19 19M5 19l1.5-1.5m11-11L19 5"
+          />
+        </symbol>
+      </defs>
+    </svg>
+
+    <header class="site-header container">
+      <a class="brand" href="#home" aria-label="Glass Studies home"
+        ><span class="brand-mark" aria-hidden="true"><i></i><i></i></span
+        >glass<span class="brand-light">studies</span
+        ><span class="brand-dot">.</span></a
+      >
+      <button
+        class="menu-toggle"
+        type="button"
+        aria-controls="primary-nav"
+        aria-expanded="false"
+        hidden
+      >
+        Menu <span aria-hidden="true">☰</span>
+      </button>
+      <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
+        <a class="nav-link" href="#home" aria-current="location">Home</a>
+        <a class="nav-link" href="#about">The idea</a>
+        <a class="nav-link" href="#explore">Explore</a>
+        <a class="nav-playground" href="#playground"
+          >Try the playground
+          <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
+        ></a>
+      </nav>
+    </header>
+
+    <main id="main">
+      <section id="home" class="hero container" aria-labelledby="hero-title">
+        <svg
+          class="hero-landscape"
+          viewBox="0 0 1400 760"
+          preserveAspectRatio="xMidYMid slice"
+          aria-hidden="true"
+        >
+          <use href="#landscape" />
+        </svg>
+        <div class="hero-copy">
+          <p class="eyebrow">
+            <span class="status-dot"></span> A study in light &amp; layers
+          </p>
+          <h1 id="hero-title">
+            A little depth.<br />A whole new<br /><em>perspective.</em>
+          </h1>
+          <p class="hero-description">
+            Meet glassmorphism. A softer, more dimensional way to design for the
+            web. Where the background becomes part of the experience.
+          </p>
+          <a class="button button-primary" href="#explore"
+            >See through the ordinary
+            <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
+          ></a>
+          <a class="hero-secondary" href="#about"
+            >Discover the design <span aria-hidden="true">↘</span></a
+          >
+        </div>
+        <div class="hero-specimen">
+          <span class="specimen-label">01 / THE GLASS EFFECT</span>
+          <div class="glass-surface specimen-card">
+            <div class="specimen-top">
+              <svg class="icon" aria-hidden="true"><use href="#layers" /></svg
+              ><span>Made of a little less.</span
+              ><span aria-hidden="true">↗</span>
+            </div>
+            <p class="specimen-title">Less surface.<br />More feeling.</p>
+            <p>A window into what’s underneath.</p>
+            <div class="specimen-bottom">
+              <span><i></i> Translucent by nature</span
+              ><span aria-hidden="true">✳</span>
+            </div>
+          </div>
+          <div class="specimen-note">
+            <span aria-hidden="true">↖</span> The view stays. The details
+            soften.
+          </div>
+        </div>
+        <div class="hero-footnote">
+          <span>DESIGN WITH A DIFFERENT MATERIAL</span
+          ><span>Scroll to look closer <span aria-hidden="true">↓</span></span>
+        </div>
+      </section>
+
+      <div
+        class="material-strip container"
+        aria-label="The three qualities of glassmorphism"
+      >
+        <p>
+          <span class="strip-number">01</span
+          ><strong>Light passes through.</strong
+          ><span>Subtle transparency</span>
+        </p>
+        <p>
+          <span class="strip-number">02</span
+          ><strong>Details become atmosphere.</strong
+          ><span>Soft backdrop blur</span>
+        </p>
+        <p>
+          <span class="strip-number">03</span
+          ><strong>Everything finds its place.</strong
+          ><span>Thoughtful depth</span>
+        </p>
+      </div>
+
+      <section
+        id="about"
+        class="about-section container section-space"
+        aria-labelledby="about-title"
+      >
+        <div class="section-copy">
+          <p class="eyebrow section-eyebrow">01 — The idea</p>
+          <h2 id="about-title">
+            Not quite solid.<br />Not quite invisible.<br /><em
+              >Just enough.</em
+            >
+          </h2>
+          <p>
+            Think of a window on a cool morning. You can sense the world on the
+            other side, even as its details soften. Glassmorphism brings that
+            feeling to an interface.
+          </p>
+          <p>
+            Translucent surfaces, a blurred backdrop, and delicate edges work
+            together to create depth. The result feels light and connected to
+            its surroundings.
+          </p>
+          <a class="text-link" href="#playground"
+            >Get a feel for the material
+            <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
+          ></a>
+        </div>
+        <figure class="anatomy">
+          <div class="anatomy-scene">
+            <svg
+              viewBox="0 0 1400 760"
+              preserveAspectRatio="xMidYMid slice"
+              aria-hidden="true"
+            >
+              <use href="#landscape" />
+            </svg>
+            <div class="anatomy-pane glass-surface">
+              <svg class="icon" aria-hidden="true"><use href="#layers" /></svg
+              ><span>A little clarity.<br />A little mystery.</span
+              ><small>The art is in the balance.</small>
+            </div>
+            <span class="annotation annotation-one"
+              ><b>01</b> A world behind it</span
+            >
+            <span class="annotation annotation-two"
+              ><b>02</b> A softened view</span
+            >
+            <span class="annotation annotation-three"
+              ><b>03</b> An edge of light</span
+            >
+          </div>
+          <figcaption>
+            <span>THE ANATOMY OF GLASS</span
+            ><span>Three details. One material.</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <section
+        id="explore"
+        class="explore-section section-space"
+        aria-labelledby="explore-title"
+      >
+        <div class="container">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow section-eyebrow">02 — In its element</p>
+              <h2 id="explore-title">A material. <em>Many moods.</em></h2>
+            </div>
+            <p>
+              A little glass can change the whole experience.<br />Explore where
+              it feels at home.
+            </p>
+          </div>
+          <div
+            class="example-picker"
+            role="group"
+            aria-label="Choose a glassmorphism example"
+            hidden
+          >
+            <button type="button" data-example="travel" aria-pressed="true">
+              <span aria-hidden="true">↗</span> A moment away
+            </button>
+            <button type="button" data-example="weather" aria-pressed="false">
+              <svg class="icon" aria-hidden="true"><use href="#sun" /></svg> A
+              clearer forecast
+            </button>
+            <button type="button" data-example="focus" aria-pressed="false">
+              <span aria-hidden="true">◷</span> Room to focus
+            </button>
+          </div>
+          <div class="example-layout">
+            <div class="example-scene" data-mood="travel">
+              <svg
+                class="example-landscape"
+                viewBox="0 0 1400 760"
+                preserveAspectRatio="xMidYMid slice"
+                aria-hidden="true"
+              >
+                <use href="#landscape" />
+              </svg>
+              <span class="scene-label">FIELD NOTES / AN INTERFACE STUDY</span>
+              <article
+                class="glass-surface example-card"
+                id="example-preview"
+                aria-labelledby="example-card-title"
+              >
+                <p class="eyebrow" id="example-kicker">Somewhere slower</p>
+                <h3 id="example-card-title">Take the<br />scenic route.</h3>
+                <p id="example-card-description">
+                  Fresh air. Open trails. A little distance from the everyday.
+                </p>
+                <span class="example-card-bottom" id="example-card-bottom"
+                  >Alpine escape <span aria-hidden="true">↗</span></span
+                >
+              </article>
+              <span class="scene-caption"
+                >Imagined places. Real design possibilities.</span
+              >
+            </div>
+            <div class="example-story" aria-live="polite" aria-atomic="true">
+              <span class="study-number" id="study-number"
+                >Study 01 / Travel</span
+              >
+              <h3 id="study-title">
+                Keep the destination<br />in the picture.
+              </h3>
+              <p id="study-description">
+                A frosted panel gives the story a place to live without hiding
+                the landscape that makes you want to go.
+              </p>
+              <dl class="study-details">
+                <div>
+                  <dt>The glass</dt>
+                  <dd id="study-material">One calm, translucent overlay</dd>
+                </div>
+                <div>
+                  <dt>The purpose</dt>
+                  <dd id="study-purpose">Bring the view into the experience</dd>
+                </div>
+              </dl>
+              <a class="text-link" href="#playground"
+                >Make it your own
+                <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
+              ></a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        id="playground"
+        class="playground-section container section-space"
+        aria-labelledby="playground-title"
+      >
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow section-eyebrow">03 — A little experimentation</p>
+            <h2 id="playground-title">Less theory. <em>More play.</em></h2>
+          </div>
+          <p>
+            Move a slider. Change the atmosphere.<br />Find your own kind of
+            glass.
+          </p>
+        </div>
+        <noscript
+          ><p class="notice">
+            Enable JavaScript to adjust the preview and generate your own CSS.
+            The rest of the showcase is ready to explore.
+          </p></noscript
+        >
+        <div class="playground-layout">
+          <div class="playground-scene" id="playground-scene" data-tone="blue">
+            <svg
+              viewBox="0 0 1400 760"
+              preserveAspectRatio="xMidYMid slice"
+              aria-hidden="true"
+            >
+              <use href="#landscape" />
+            </svg>
+            <span class="scene-label">YOUR MATERIAL, IN REAL TIME</span>
+            <div class="glass-surface live-glass" id="live-glass">
+              <svg class="icon" aria-hidden="true"><use href="#layers" /></svg>
+              <p>Clearly<br /><em>something else.</em></p>
+              <span>A little light changes everything.</span>
+            </div>
+            <span class="scene-caption" id="preview-caption"
+              >24px blur · 48% opacity · blue tint</span
+            >
+          </div>
+          <form class="playground-controls" id="glass-controls">
+            <div class="controls-heading">
+              <h3>The material lab</h3>
+              <button type="reset" class="reset-button" disabled>
+                Reset <span aria-hidden="true">↺</span>
+              </button>
+            </div>
+            <div class="range-control">
+              <label for="blur"
+                >Backdrop blur
+                <output id="blur-value" for="blur">24px</output></label
+              ><input
+                type="range"
+                id="blur"
+                name="blur"
+                min="0"
+                max="40"
+                value="24"
+                disabled
+              />
+              <p>From a clear window to a frosted surface.</p>
+            </div>
+            <div class="range-control">
+              <label for="opacity"
+                >Surface opacity
+                <output id="opacity-value" for="opacity">48%</output></label
+              ><input
+                type="range"
+                id="opacity"
+                name="opacity"
+                min="25"
+                max="85"
+                value="48"
+                disabled
+              />
+              <p>A little atmosphere, or a little more privacy.</p>
+            </div>
+            <fieldset class="tint-options" disabled>
+              <legend>A hint of color</legend>
+              <label
+                ><input type="radio" name="tint" value="blue" checked /><span
+                  class="swatch swatch-blue"
+                ></span
+                >Blue</label
+              ><label
+                ><input type="radio" name="tint" value="green" /><span
+                  class="swatch swatch-green"
+                ></span
+                >Green</label
+              ><label
+                ><input type="radio" name="tint" value="white" /><span
+                  class="swatch swatch-white"
+                ></span
+                >White</label
+              >
+            </fieldset>
+            <button
+              type="button"
+              id="copy-css"
+              class="button button-primary"
+              disabled
+            >
+              Copy your CSS <span aria-hidden="true">⧉</span>
+            </button>
+            <p class="copy-status" id="copy-status" role="status">
+              A small recipe. Ready for your next idea.
+            </p>
+            <details class="code-details">
+              <summary>
+                Look under the surface <span aria-hidden="true">+</span>
+              </summary>
+              <pre><code id="css-output">.glass {
+  background: #e5f1fc;
+  border: 1px solid rgb(255 255 255 / 65%);
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgb(16 48 61 / 10%);
+}
+
+@supports (backdrop-filter: blur(1px)) or
+  (-webkit-backdrop-filter: blur(1px)) {
+  .glass {
+    background: rgb(229 241 252 / 48%);
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
+  }
+}</code></pre>
+            </details>
+          </form>
+        </div>
+      </section>
+
+      <section
+        class="questions-section container section-space"
+        aria-labelledby="questions-title"
+      >
+        <div>
+          <p class="eyebrow section-eyebrow">04 — A clearer picture</p>
+          <h2 id="questions-title">Beyond the<br /><em>good looks.</em></h2>
+          <p>Good design has a reason for every layer.</p>
+        </div>
+        <div class="questions">
+          <details>
+            <summary>
+              What makes it different from neumorphism?<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <p>
+              Neumorphism uses light and dark shadows to make elements look
+              pressed into, or raised from, a solid surface. Glassmorphism uses
+              translucent layers and backdrop blur to reveal the environment
+              behind an element. One feels sculpted; the other feels layered.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Where does glass work best?<span aria-hidden="true">+</span>
+            </summary>
+            <p>
+              Use it when the background adds context: navigation over a
+              photograph, a forecast over a landscape, or a small control panel
+              over a creative workspace. For long articles and dense
+              information, a solid surface usually makes reading easier.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Can beautiful glass be accessible?<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <p>
+              Yes, when readability comes first. Give text enough contrast,
+              strengthen the surface fill over busy backgrounds, keep keyboard
+              focus visible, and provide solid backgrounds for high contrast
+              settings or browsers without blur support.
+            </p>
+          </details>
+          <details>
+            <summary>
+              Does it need a framework or a library?<span aria-hidden="true"
+                >+</span
+              >
+            </summary>
+            <p>
+              No. A translucent background, a thin border, a gentle shadow, and
+              the CSS backdrop-filter property are enough. Keep the number of
+              blurred surfaces small, especially on mobile, and include a
+              readable solid fallback. This entire showcase uses HTML, CSS, and
+              JavaScript.
+            </p>
+          </details>
+        </div>
+      </section>
+
+      <section
+        class="closing-section container"
+        aria-labelledby="closing-title"
+      >
+        <div>
+          <p class="eyebrow">A fresh way to see things</p>
+          <h2 id="closing-title">Make room for <em>what’s underneath.</em></h2>
+        </div>
+        <a class="button button-primary" href="#playground"
+          >Create a little glass
+          <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
+        ></a>
+      </section>
+    </main>
+
+    <footer class="site-footer container">
+      <a class="brand" href="#home"
+        >glass<span class="brand-light">studies</span
+        ><span class="brand-dot">.</span></a
+      >
+      <p>An exploration of light, layers &amp; thoughtful interfaces.</p>
+      <a class="footer-top" href="#home"
+        >Back to the top <span aria-hidden="true">↑</span></a
+      >
+    </footer>
+  </body>
+</html>
