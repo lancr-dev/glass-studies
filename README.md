@@ -1,6 +1,6 @@
 # Glass Studies
 
-Glass Studies is a responsive showcase that introduces glassmorphism web design through visual examples and an interactive material playground. It uses a blue, green, and white palette with accessible frosted-glass surfaces, solid fallbacks, and mobile-friendly layouts.
+Glass Studies is a responsive showcase that introduces glassmorphism web design through visual examples and an interactive material playground. It uses a dark blue, orange, white, and near-black palette with accessible frosted-glass surfaces, solid fallbacks, and mobile-friendly layouts.
 
 ## Features
 

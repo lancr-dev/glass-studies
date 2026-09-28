@@ -3,17 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#eef5f2" />
+    <meta name="theme-color" content="#080d16" />
     <meta
       name="description"
       content="Explore the art of glassmorphism. Discover frosted surfaces, thoughtful layers, and an interactive CSS playground at Glass Studies."
     />
-    <title>Glass Studies — A different kind of depth.</title>
+    <title>Glass Studies — Glassmorphism | Lance Ducante</title>
     <link
       rel="icon"
       type="image/svg+xml"
       sizes="any"
-      href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%229%22%20y%3D%227%22%20width%3D%2235%22%20height%3D%2242%22%20rx%3D%227%22%20fill%3D%22%23d5e9e2%22%20stroke%3D%22%234c8b86%22%20stroke-width%3D%222%22%20transform%3D%22rotate(-12%2026.5%2028)%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%2217%22%20width%3D%2233%22%20height%3D%2240%22%20rx%3D%227%22%20fill%3D%22%2395c3bc%22%20fill-opacity%3D%22.75%22%20stroke%3D%22%23326d70%22%20stroke-width%3D%222%22%20transform%3D%22rotate(7%2038.5%2037)%22%2F%3E%3C%2Fsvg%3E"
+      href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%2064%2064%22%3E%3Crect%20x%3D%229%22%20y%3D%227%22%20width%3D%2235%22%20height%3D%2242%22%20rx%3D%227%22%20fill%3D%22%231b3f70%22%20stroke%3D%22%2389bdff%22%20stroke-width%3D%222%22%20transform%3D%22rotate(-12%2026.5%2028)%22%2F%3E%3Crect%20x%3D%2222%22%20y%3D%2217%22%20width%3D%2233%22%20height%3D%2240%22%20rx%3D%227%22%20fill%3D%22%23ffab66%22%20fill-opacity%3D%22.75%22%20stroke%3D%22%23ffc08c%22%20stroke-width%3D%222%22%20transform%3D%22rotate(7%2038.5%2037)%22%2F%3E%3C%2Fsvg%3E"
     />
     <link rel="stylesheet" href="style.css" />
     <script src="script.js" defer></script>
@@ -27,27 +27,27 @@
     >
       <defs>
         <linearGradient id="sky" x2="0" y2="1">
-          <stop stop-color="#a8cde0" />
-          <stop offset=".64" stop-color="#e0eee9" />
-          <stop offset="1" stop-color="#b4d8d0" />
+          <stop stop-color="#0b1730" />
+          <stop offset=".64" stop-color="#224779" />
+          <stop offset="1" stop-color="#7e635f" />
         </linearGradient>
         <linearGradient id="mountain-back" x2=".6" y2="1">
-          <stop stop-color="#88b8c0" />
-          <stop offset="1" stop-color="#538c9b" />
+          <stop stop-color="#365f98" />
+          <stop offset="1" stop-color="#1c3967" />
         </linearGradient>
         <linearGradient id="mountain-mid" x2=".6" y2="1">
-          <stop stop-color="#83b5a5" />
-          <stop offset="1" stop-color="#3e807d" />
+          <stop stop-color="#2d5590" />
+          <stop offset="1" stop-color="#162e54" />
         </linearGradient>
         <linearGradient id="mountain-front" x2="1" y2="1">
-          <stop stop-color="#559882" />
-          <stop offset="1" stop-color="#123f53" />
+          <stop stop-color="#1b3a67" />
+          <stop offset="1" stop-color="#080f20" />
         </linearGradient>
         <symbol id="landscape" viewBox="0 0 1400 760">
           <path fill="url(#sky)" d="M0 0h1400v760H0z" />
-          <circle cx="1090" cy="165" r="67" fill="#f4f8e9" opacity=".76" />
+          <circle cx="1090" cy="165" r="67" fill="#ffab66" opacity=".76" />
           <path
-            fill="#b0cdd1"
+            fill="#40567c"
             d="m0 445 95-62 70 15 141-133 90 75 157-87 95 63 109-110 107 81 61-8 90 58 167-107 110 97 108-55v488H0Z"
           />
           <path
@@ -55,7 +55,7 @@
             d="m0 565 138-99 69 13 191-124 83 49 128-105 66 43 146-107 114 89 56-15 169 144 121-49 119 58v298H0Z"
           />
           <path
-            fill="#d2e5df"
+            fill="#b7d5ff"
             opacity=".4"
             d="m609 299-59 113 125-70-29 4Z m212-64-96 118 104-40 58 1Z"
           />
@@ -64,7 +64,7 @@
             d="m0 641 180-54 161 23 181-111 140 48 146-125 134 45 135-103 113 58 210-94v432H0Z"
           />
           <path
-            fill="#a9d2b7"
+            fill="#ffb679"
             opacity=".56"
             d="m1077 364-135 103-134-45 100 74 107-49 89-14 86-11Z"
           />
@@ -73,14 +73,14 @@
             d="M0 640c132-11 243 98 409 91 223-9 276-114 457-123 221-11 318-135 534-134v286H0Z"
           />
           <path
-            fill="#173f4b"
+            fill="#060b15"
             opacity=".36"
             d="M777 760c108-83 210-66 309-118 125-65 210-89 314-104v222Z"
           />
           <path
             d="M1138 760c-77-50-125-53-105-76 19-22 95-31 64-48-22-12-21-25 13-38"
             fill="none"
-            stroke="#c8e0cb"
+            stroke="#a9cfff"
             stroke-width="3"
             opacity=".45"
           />
@@ -437,10 +437,10 @@
                 ></span
                 >Blue</label
               ><label
-                ><input type="radio" name="tint" value="green" /><span
-                  class="swatch swatch-green"
+                ><input type="radio" name="tint" value="orange" /><span
+                  class="swatch swatch-orange"
                 ></span
-                >Green</label
+                >Orange</label
               ><label
                 ><input type="radio" name="tint" value="white" /><span
                   class="swatch swatch-white"
@@ -464,16 +464,17 @@
                 Look under the surface <span aria-hidden="true">+</span>
               </summary>
               <pre><code id="css-output">.glass {
-  background: #e5f1fc;
-  border: 1px solid rgb(255 255 255 / 65%);
+  background: #0f2039;
+  color: #f5f7ff;
+  border: 1px solid rgb(185 214 255 / 30%);
   border-radius: 16px;
-  box-shadow: 0 12px 32px rgb(16 48 61 / 10%);
+  box-shadow: 0 12px 32px rgb(0 0 0 / 32%);
 }
 
 @supports (backdrop-filter: blur(1px)) or
   (-webkit-backdrop-filter: blur(1px)) {
   .glass {
-    background: rgb(229 241 252 / 48%);
+    background: rgb(15 32 57 / 48%);
     -webkit-backdrop-filter: blur(24px);
     backdrop-filter: blur(24px);
   }
@@ -567,7 +568,10 @@
         >glass<span class="brand-light">studies</span
         ><span class="brand-dot">.</span></a
       >
-      <p>An exploration of light, layers &amp; thoughtful interfaces.</p>
+      <p>
+        An exploration of light, layers &amp; thoughtful interfaces. &copy;
+        Lance Ducante
+      </p>
       <a class="footer-top" href="#home"
         >Back to the top <span aria-hidden="true">↑</span></a
       >

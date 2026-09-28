@@ -163,9 +163,9 @@ const cssOutput = document.querySelector('#css-output');
 const copyButton = document.querySelector('#copy-css');
 const copyStatus = document.querySelector('#copy-status');
 const tints = {
-  blue: { rgb: '229 241 252', solid: '#e5f1fc' },
-  green: { rgb: '228 246 234', solid: '#e4f6ea' },
-  white: { rgb: '255 255 255', solid: '#ffffff' },
+  blue: { rgb: '15 32 57', solid: '#0f2039' },
+  orange: { rgb: '65 35 24', solid: '#412318' },
+  white: { rgb: '42 47 56', solid: '#2a2f38' },
 };
 
 function updateGlass() {
@@ -188,9 +188,10 @@ function updateGlass() {
 
   cssOutput.textContent = `.glass {
   background: ${color.solid};
-  border: 1px solid rgb(255 255 255 / 65%);
+  color: #f5f7ff;
+  border: 1px solid rgb(185 214 255 / 30%);
   border-radius: 16px;
-  box-shadow: 0 12px 32px rgb(16 48 61 / 10%);
+  box-shadow: 0 12px 32px rgb(0 0 0 / 32%);
 }
 
 @supports (backdrop-filter: blur(1px)) or
