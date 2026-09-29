@@ -19,6 +19,7 @@
   --focus: #89bdff;
   --motion: 180ms;
   --container: 1240px;
+  --header-height: 96px;
   font-family: 'Segoe UI', Arial, sans-serif;
   font-synthesis: none;
   color: var(--text);
@@ -32,7 +33,11 @@
 }
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 28px;
+  scroll-padding-top: calc(var(--header-height) + 20px);
+  scrollbar-gutter: stable;
+}
+html.menu-open {
+  overflow: hidden;
 }
 body {
   margin: 0;
@@ -160,7 +165,14 @@ svg {
 
 /* Navigation and shared controls. */
 .site-header {
-  min-height: 96px;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  background: var(--page-bg);
+  border-bottom: 1px solid var(--line);
+}
+.header-inner {
+  min-height: var(--header-height);
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -246,7 +258,12 @@ svg {
 .nav-playground .icon {
   width: 17px;
 }
-.menu-toggle {
+.menu-toggle,
+.menu-close {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 44px;
   min-height: 44px;
   background: transparent;
   border: 1px solid var(--line);
@@ -254,8 +271,78 @@ svg {
   border-radius: var(--control-radius);
   padding: 8px 14px;
 }
-.menu-toggle span {
-  margin-left: 8px;
+.menu-close {
+  padding: 10px;
+}
+.nav-drawer {
+  position: fixed;
+  inset: 0 0 0 auto;
+  margin: 0;
+  width: min(360px, 88vw);
+  max-width: none;
+  height: 100%;
+  height: 100dvh;
+  max-height: none;
+  padding: max(24px, env(safe-area-inset-top)) 24px
+    max(24px, env(safe-area-inset-bottom));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  color: var(--text);
+  background: var(--surface);
+  border: 0;
+  border-left: 1px solid var(--glass-border);
+  box-shadow: -20px 0 60px rgb(0 0 0 / 35%);
+}
+.nav-drawer[open] {
+  animation: drawer-enter var(--motion) ease-out;
+}
+.nav-drawer::backdrop {
+  background: rgb(3 8 16 / 70%);
+}
+.drawer-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-bottom: 24px;
+  margin-bottom: 24px;
+  border-bottom: 1px solid var(--line);
+}
+.drawer-heading h2 {
+  font-size: 22px;
+}
+.nav-drawer .primary-nav {
+  flex-direction: column;
+  align-items: stretch;
+  gap: 12px;
+  font-size: 16px;
+}
+.nav-drawer .nav-link {
+  padding: 14px 8px;
+}
+.nav-drawer .nav-playground {
+  justify-content: space-between;
+  margin-top: 20px;
+}
+@keyframes drawer-enter {
+  from {
+    transform: translateX(100%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+@supports (backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px)) {
+  .site-header {
+    background: rgb(8 13 22 / 90%);
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+  }
+  .nav-drawer {
+    background: rgb(16 27 44 / 94%);
+    -webkit-backdrop-filter: blur(24px);
+    backdrop-filter: blur(24px);
+  }
 }
 .button {
   display: inline-flex;
@@ -1122,6 +1209,19 @@ details[open] > summary > span {
     padding-inline: 75px;
   }
 }
+@media (max-width: 1024px) {
+  :root {
+    --header-height: 82px;
+  }
+  .header-inner {
+    flex-wrap: wrap;
+    gap: 0 20px;
+  }
+  .header-inner > .primary-nav {
+    flex-wrap: wrap;
+    padding-bottom: 15px;
+  }
+}
 @media (max-width: 1000px) {
   .primary-nav {
     gap: 22px;
@@ -1164,29 +1264,16 @@ details[open] > summary > span {
   }
 }
 @media (max-width: 760px) {
-  .site-header {
-    min-height: 82px;
-    flex-wrap: wrap;
-    gap: 0 20px;
-    padding-block: 15px;
-  }
   .brand {
     font-size: 23px;
   }
-  .menu-toggle:not([hidden]) {
-    display: inline-flex;
-    align-items: center;
-  }
-  .primary-nav {
+  .header-inner > .primary-nav {
     width: 100%;
     flex-wrap: wrap;
     gap: 14px 24px;
     padding-block: 15px 5px;
   }
-  .primary-nav.is-collapsible:not(.is-open) {
-    display: none;
-  }
-  .nav-playground {
+  .header-inner > .primary-nav .nav-playground {
     margin-left: auto;
   }
   .hero {
@@ -1542,6 +1629,12 @@ details[open] > summary > span {
   }
 }
 @media (prefers-contrast: more), (prefers-reduced-transparency: reduce) {
+  .site-header,
+  .nav-drawer {
+    background: var(--page-bg);
+    -webkit-backdrop-filter: none;
+    backdrop-filter: none;
+  }
   .glass-surface {
     background: var(--glass-solid);
     -webkit-backdrop-filter: none;
@@ -1569,13 +1662,17 @@ details[open] > summary > span {
   .button,
   .nav-playground,
   .menu-toggle,
+  .menu-close,
+  .nav-drawer,
   .annotation,
   .range-control output,
   .swatch {
     border: 1px solid CanvasText;
   }
   .glass-surface,
-  .live-glass {
+  .live-glass,
+  .site-header,
+  .nav-drawer {
     background: Canvas;
     color: CanvasText;
     -webkit-backdrop-filter: none;

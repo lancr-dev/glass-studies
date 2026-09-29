@@ -100,31 +100,51 @@
       </defs>
     </svg>
 
-    <header class="site-header container">
-      <a class="brand" href="#home" aria-label="Glass Studies home"
-        ><span class="brand-mark" aria-hidden="true"><i></i><i></i></span
-        >glass<span class="brand-light">studies</span
-        ><span class="brand-dot">.</span></a
-      >
-      <button
-        class="menu-toggle"
-        type="button"
-        aria-controls="primary-nav"
-        aria-expanded="false"
-        hidden
-      >
-        Menu <span aria-hidden="true">☰</span>
-      </button>
-      <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
-        <a class="nav-link" href="#home" aria-current="location">Home</a>
-        <a class="nav-link" href="#about">The idea</a>
-        <a class="nav-link" href="#explore">Explore</a>
-        <a class="nav-playground" href="#playground"
-          >Try the playground
-          <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
-        ></a>
-      </nav>
+    <header class="site-header">
+      <div class="header-inner container">
+        <a class="brand" href="#home" aria-label="Glass Studies home"
+          ><span class="brand-mark" aria-hidden="true"><i></i><i></i></span
+          >glass<span class="brand-light">studies</span
+          ><span class="brand-dot">.</span></a
+        >
+        <button
+          class="menu-toggle"
+          type="button"
+          aria-label="Menu"
+          aria-controls="primary-nav"
+          aria-expanded="false"
+          aria-haspopup="dialog"
+          hidden
+        >
+          <span aria-hidden="true">☰</span>
+        </button>
+        <nav id="primary-nav" class="primary-nav" aria-label="Main navigation">
+          <a class="nav-link" href="#home" aria-current="location">Home</a>
+          <a class="nav-link" href="#about">The idea</a>
+          <a class="nav-link" href="#explore">Explore</a>
+          <a class="nav-playground" href="#playground"
+            >Try the playground
+            <svg class="icon" aria-hidden="true"><use href="#arrow" /></svg
+          ></a>
+        </nav>
+      </div>
     </header>
+
+    <dialog class="nav-drawer" aria-labelledby="drawer-title">
+      <div class="drawer-heading">
+        <h2 id="drawer-title">Navigation</h2>
+        <button
+          class="menu-close"
+          type="button"
+          aria-label="Close navigation"
+          autofocus
+        >
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true">
+            <path d="m6 6 12 12M6 18 18 6" />
+          </svg>
+        </button>
+      </div>
+    </dialog>
 
     <main id="main">
       <section id="home" class="hero container" aria-labelledby="hero-title">
